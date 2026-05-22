@@ -1,0 +1,60 @@
+{
+  "entities": {
+    "lead": {
+      "title": "Consultation Lead",
+      "description": "Information submitted by prospective brands for 1-on-1 strategy sessions, augmented with AI insights.",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier of the lead"
+        },
+        "name": {
+          "type": "string",
+          "description": "Name of the prospect"
+        },
+        "company": {
+          "type": "string",
+          "description": "Company or brand name"
+        },
+        "email": {
+          "type": "string",
+          "description": "Email address"
+        },
+        "phone": {
+          "type": "string",
+          "description": "Phone / WhatsApp number"
+        },
+        "service": {
+          "type": "string",
+          "description": "Primary service requested"
+        },
+        "challenge": {
+          "type": "string",
+          "description": "The specific brand challenge described by the prospect"
+        },
+        "aiConcept": {
+          "type": "string",
+          "description": "Gemini-generated cinematic brief and strategic assessment for this lead"
+        },
+        "status": {
+          "type": "string",
+          "enum": ["pending", "reviewed", "contacted"],
+          "description": "Status of the strategy lead"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Timestamp when the session request was submitted"
+        }
+      },
+      "required": ["name", "company", "email", "challenge"]
+    }
+  },
+  "firestore": {
+    "/leads/{leadId}": {
+      "schema": "lead",
+      "description": "Root collection storing consultation leads and AI pitches"
+    }
+  }
+}

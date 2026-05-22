@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Barlow:wght@200;300;400;500;600;700&family=Barlow+Condensed:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@300;400;500&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Cormorant Garamond", Georgia, serif;
+  --font-sans: "Barlow", ui-sans-serif, system-ui, sans-serif;
+  --font-condensed: "Barlow Condensed", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+  
+  --color-gold: #C9A84C;
+  --color-gold-dim: #8A6E2F;
+  --color-brand-black: #080808;
+  --color-brand-off: #0F0F0F;
+  --color-brand-panel: #141414;
+  --color-brand-border: #1E1E1E;
+  --color-brand-border-mid: #2A2A2A;
+}
+
+/* Custom scrollbar matching cinematic style */
+::-webkit-scrollbar {
+  width: 3px;
+  height: 3px;
+}
+::-webkit-scrollbar-track {
+  background: #080808;
+}
+::-webkit-scrollbar-thumb {
+  background: #8A6E2F;
+}
+
+/* Base style resets */
+body {
+  background: #080808;
+  color: #FAFAFA;
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+}
+
+/* Cinematic film-grain animation */
+.cinematic-grain::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+  opacity: 0.25;
+  pointer-events: none;
+}
+
